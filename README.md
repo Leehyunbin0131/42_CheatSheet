@@ -745,9 +745,9 @@ void    somefunction3(void)
     printf("%d\n", a[5]);
 }
 ```
-In this example, 5 is the size of the array and if you try to access it it will overflow. Remember that the maximum array index you can ever access is its size minus 1.
+여기서 5는 배열 **크기**라서 `a[5]`로 접근하면 한 칸 밖입니다. 접근할 수 있는 최댓값은 **크기 − 1**이라는 걸 잊지 마세요.
 
-I would suggest to use as much as possible a const :
+가능하면 `const`로 길이를 박아 두고 돌리세요.
 ```c
 #include <stdio.h>
 
@@ -761,18 +761,19 @@ void    somefunction3(void)
 ```
 
 ---
-## 0x01 ~ Segmentation Fault
+<a id="0x01--segmentation-fault"></a>
+## 0x01 ~ Segmentation fault
 
-> **There are two ways to write error-free programs; only the third one works** – *Alan J. Perlis*
+> **버그 없는 프로그램을 짜는 방법은 둘인데, 실제로 통하는 건 셋째다** – *앨런 J. 펄리스*
 
-*Many potential reasons for this...*
+*원인은 한두 가지가 아닙니다…*
 
 
 ---
-## Loop segfault
-One common mistake is that you had declared a loop and either:
+## 루프에서 터지는 segfault
+흔한 실수는 반복문을 짜 놓고:
 
-#### Forgot to increment the counter
+#### 카운터를 안 올린 경우
 
 ```c
 int i = 0;
@@ -784,7 +785,7 @@ while (i < 10)
 }
 ```
 
-#### Correct way
+#### 제대로 된 예
 
 ```c
 int i = 0;
@@ -796,19 +797,19 @@ while (i < 10)
 }
 ```
 
-### Forgot the exit condition:
+### 탈출 조건을 잊은 경우
 
 ```c
 int somevariable = 0;
-while (42) // always True ! You will be 42 for life ;)
+	while (42) // 항상 참! 평생 42다 ;)
 {
-    // call to some stuff that never succeed to set someVariable to 1;
-    if (somevariable == 1) // make sure that somevariable will equal 1 at some point.
+    // 어떤 처리를 해도 somevariable이 1이 되지 않는다면
+    if (somevariable == 1) // 언젠가 1이 되게 만들 것
         break ;
 }
 ```
 
-### Used an assignation = instead of a boolean expression != == <= >=
+### 비교가 아니라 대입 `=`만 쓴 경우
 
 ```c
 #include <stdio.h>
@@ -827,9 +828,9 @@ int main(void) {
 	return 0;
 }
 ```
-*PS: will you be able to fix this code ?*  
+*PS: 이 코드 고칠 수 있겠어요?*  
 
-Also classic with lists:  you have a loop and its crucial condition that allows the function to return, but used an assignation instead of comparison
+리스트에서도 클래식합니다: 반복문이 돌아가려면 꼭 필요한 조건이 있는데, **비교 대신 대입**을 써 버린 경우예요.
 ```c
 int i = 0;
 
@@ -843,7 +844,7 @@ while (list)
 return -1; // will always return -1
 ```
 
-### Quizz: What will print this loop ?
+### 퀴즈: 이 루프는 뭘 출력할까?
 
 ```c
 unsigned char c = 0;
@@ -858,9 +859,9 @@ while (c < 150)
 > **Talk is cheap. Show me the code** ― *Linus Torvalds*
 
 
-### Accessing the next link in a chained-list without checking the current one
+### 연결 리스트에서 지금 노드를 안 보고 `next`만 보려는 경우
 
-Another example with linked-lists
+연결 리스트 예시 하나 더.
 ```c
 typedef struct  s_list {
       void      *data;
@@ -880,7 +881,7 @@ void somefunction(t_list *list)
 }
 ```
 
-if the current link of list is null you will get a segfault. The correct way is to always check the current link before the next one:
+지금 노드가 `NULL`인데 `next`부터 만지면 segfault입니다. **현재 노드 → 다음 노드** 순으로 검사하세요.
 ```c
 void somefunction(t_list *list)
 {
@@ -889,7 +890,7 @@ void somefunction(t_list *list)
 }
 ```
 
-### Accessing an index in a loop for program with either graphics or a board game
+### 그래픽·보드게임 루프에서 인덱스를 함부로 쓰는 경우
 ```c
 int somefunction(int y_max, int x_max, int array[y_max][x_max]);
 {
@@ -902,9 +903,9 @@ int somefunction(int y_max, int x_max, int array[y_max][x_max]);
         x = 0;
         while (x < x_max)
         {
-            if (array[y][x-1] > array[y][x]) // don't you see there is a problem ?
+            if (array[y][x-1] > array[y][x]) // x=0이면 위험하지 않나요?
                 array[y][x] = array[y][x-1];
-            if (array[y+1][x] > array[y][x]) // don't you see there is another problem ?
+            if (array[y+1][x] > array[y][x]) // y가 맨 아래일 때는요?
                 array[y][x] = array[y+1][x];
         }
 
@@ -912,20 +913,20 @@ int somefunction(int y_max, int x_max, int array[y_max][x_max]);
 }
 ```
 
-These lines should be corrected the following way:
+이렇게 고치는 게 안전합니다.
 ```c
 if (x > 0 && array[y][x-1] > array[y][x])
-if (y < y_max - 1 && array[y+1][x] > array[y][x]) // strictly inferior to last possible index which is y_max - 1,
-// you may also write y <= y_max - 2
+if (y < y_max - 1 && array[y+1][x] > array[y][x]) // 마지막 행 인덱스는 y_max - 1
+// y <= y_max - 2 로 쓸 수도 있음
 ```
 
-You may also notice that we can even do better by changing the starting value of x or the exit condition of the y loop **in the case that we were to check only one of the two if conditions.**
+**둘 중 하나의 if만** 검사해도 된다면, `x`의 시작값이나 `y` 루프의 종료 조건을 조정해 경계를 더 타이트하게 만들 수도 있습니다.
 ```c
 x = 1;
 while (y < y_max - 1)
 ```
 
-Another example
+또 다른 예 (인덱스가 배열 밖으로 튀는 전형적인 패턴)
 ```c
 int main(void) {
 	const int x_max = 3;
@@ -939,9 +940,10 @@ int main(void) {
 ```
 
 ---
+<a id="0x02--bus-error"></a>
 ## 0x02 ~ Bus error
 
-Occur when your processor cannot even attempt the memory access requested, like trying to access an address that does not satisfy its alignment requirements.
+CPU가 요청한 메모리 접근을 **시도조차 못할 때** 납니다. 정렬(alignment) 요구를 만족하지 않는 주소를 건드리는 식이죠.
 ```c
 int main(void) {
 	const int x_max = 3;
@@ -956,9 +958,10 @@ int main(void) {
 
 
 ---
+<a id="0x03--stack-smashing"></a>
 ## 0x03 ~ Stack smashing
 
-See below in the recommended books the one by Aleph One, how you can make use of such "error"
+아래 추천 도서 중 Aleph One 글을 보면, 이런 “오류”를 어떻게 활용하는지도 나옵니다.
 ```c
 int main(void) {
 	const int x_max = 3;
@@ -978,16 +981,17 @@ int main(void) {
 ```
 
 ---
-## 0x04 ~ Modifying value of a local variable given as function parameter
+<a id="0x04--modifying-value-of-a-local-variable-given-as-function-parameter"></a>
+## 0x04 ~ 함수 인자로 받은 지역 변수 값을 바꾸려는 시도
 
-Local variable value are allocated on the stack, which is cleaned once you exit the function.
+지역 변수는 **stack**에 잡히고, 함수를 빠져나오면 정리됩니다.
 
-### Useless variable change
+### 소용없는 값 바꾸기
 
 ```c
 void increment_a(int a)
 {
-    a++; // it will have no effect
+    a++; // 호출한 쪽의 a에는 영향 없음
 }
 
 int solve(void)
@@ -998,9 +1002,9 @@ int solve(void)
 }
 ```
 
-### Useful variable change
+### 제대로 값 바꾸기
 
-Hence if you want to modify a value you either have to use a pointer to the memory address:
+값을 바꾸고 싶다면 **주소를 넘기거나**,
 ```c
 void increment_a(int *a)
 {
@@ -1015,7 +1019,7 @@ int solve(void)
 }
 ```
 
-or return the local value:
+아니면 **바뀐 값을 return**해야 합니다.
 ```c
 int increment_a(int a)
 {
@@ -1030,9 +1034,10 @@ int solve(void)
 }
 ```
 
-## 0x05 ~ Unprotected malloc
+<a id="0x05--unprotected-malloc"></a>
+## 0x05 ~ 맨끝 없는 malloc
 
-Do NOT leave a malloc unprotected:
+**malloc을 맨몸으로 두지 마세요.**
 ```c
 int allocate_memory(void)
 {
@@ -1051,15 +1056,15 @@ int somefunction(void)
 }
 ```
 
-Protect both the malloc **and its return value**:
-It is not good enough to protect the malloc in the callee function (the function called) if the returned value is not also protected in the caller function (the function 'above')
+**malloc 호출**과 **그 반환값** 둘 다 지켜야 합니다.  
+피호출 함수(callee) 안에서만 `NULL` 체크하고, 호출자(caller)에서 반환 포인터를 또 확인하지 않으면 소용없습니다.
 ```c
 int allocate_memory(void)
 {
 	int *matrix;
 
-	if (!(matrix = malloc(sizeof(int) * 9))) // this is short for matrix = malloc(sizeof(int) * 9; if (matrix == NULL)
-		return NULL;   // the malloc is now protected,
+	if (!(matrix = malloc(sizeof(int) * 9))) // matrix = malloc(...); if (matrix == NULL) 축약
+		return NULL;   // 여기선 malloc이 보호됨
 
 	return matrix;
 }
@@ -1068,42 +1073,43 @@ int somefunction(void)
 {
 	int *matrix;
 
-	if ((matrix = allocate_memory()) == NULL) // the return value is also protected
-        	exit(); // note that often you can't or don't want to use exit() and will need to return 0 along all the functions up to the main function.
+	if ((matrix = allocate_memory()) == NULL) // 반환값도 여기서 보호
+        	exit(); // 실무에선 exit() 대신 위로 return 전파하는 편이 많습니다.
 	free(matrix);
 }
 ```
 
 ---
-## 0x06 ~ Freeing memory that has already been fred
+<a id="0x06--freeing-memory-that-has-already-been-fred"></a>
+## 0x06 ~ 이미 free한 메모리 또 free
 
-In the previous example, if you don't need the variable matrix anymore you can free it.  
+앞 예에서 `matrix`가 더 이상 필요 없으면 `free`하면 됩니다.
 
-However do not attempt to free twice or to free a stack based variable:
+다만 **두 번 free**하거나, **stack에 있는 변수**를 free하려 들면 안 됩니다.
 ```c
 int main(void) {
 	int *matrix;
 
 	if (!(matrix = malloc(sizeof(int) * 9)))
-		return 1; // NB: exceptionnally return 1 in the main, it means that an error occured
+		return 1; // NB: main에서 1을 돌리는 건 예외적으로 “에러” 의미로 쓴 것
 	free(matrix); // OK
-	free(matrix) // Not OK
+	free(matrix) // 금지
 
-	return 0; // return 0, the program run without error
+	return 0; // 0이면 정상 종료
 }
 ```
 
 
 ---
-## 0x07 ~ Do Not use global variables
+<a id="0x07--do-not-use-global-variables"></a>
+## 0x07 ~ 전역 변수 쓰지 말기
 
-> "Theory and practice sometimes clash. And when that happens, theory loses.  
-Every single time." ― Linus Torvalds
+> "이론과 실전이 부딪히면, 매번 이론이 진다." ― *리누스 토르발스*
 
-Global variables are forbidden in 42 School except for a few exceptions, see this interesting article: [Are Global Variables Bad](https://stackoverflow.com/questions/484635/are-global-variables-bad)
-However many students, me including, found a way to circumvent this interdiction: you first declare a structure in the header that will contain all our variables:
+42에서는 예외 없이 **전역 변수가 금지**인 경우가 많습니다. [전역 변수가 왜 곱씹어볼 만한지](https://stackoverflow.com/questions/484635/are-global-variables-bad)도 읽어 보세요.  
+그래도 학생들(저 포함)은 꼼수를 찾곤 합니다: 헤더에 **모든 상태를 담는 struct**를 선언해 두고요.
 
-> "Don’t comment bad code—rewrite it." ― *Brian W. Kernighan, The Elements of Programming Style*
+> "나쁜 코드에 주석 달지 말고 다시 써라." ― *브라이언 W. 커니핸, The Elements of Programming Style*
 
 ```c
 typedef struct s_env
@@ -1114,7 +1120,7 @@ typedef struct s_env
     // ... other variables you may need
 }           t_env;
 ```
-And then using it the following way in the program:
+그리고 프로그램에서는 이렇게 돌려 줍니다.
 ```c
 void somefunction2(t_env *env)
 {
@@ -1139,29 +1145,32 @@ int main(void)
 }
 ```
 
-This is "legal" in 42 (it is not a global variable, it is a structure passed along functions), it "works", but it is a very poor architecture choice. It is okay for beginner to do this but as your skill grows you should find more clever ways to architecture your programs.
+42 규정상 “전역”은 아니니까(함수에 struct 포인터로 넘기니) **겉으로는 합법**이고, 돌아가긴 합니다. 하지만 설계로는 꽤 별로입니다. 초반엔 그럴 수 있어도, 실력이 붙으면 더 낫게 쪼개 보세요.
 
 
 ---
-## 0x08 ~ Variable Length Arrays
+<a id="0x08--variable-length-arrays"></a>
+## 0x08 ~ 가변 길이 배열(VLA)
 
-[Waiter! There's a VLA in my C!](http://ayekat.ch/blog/vla)
+[웨이터! 제 C에 VLA가 들어 있어요!](http://ayekat.ch/blog/vla)
 
-The following example is a VLA and this is bad for many reasons, the most critical being that the memory is allocated on the stack which has a limited size.
+아래는 VLA인데, 여러 이유로 피하는 게 좋습니다. 특히 메모리가 **크기 제한 있는 stack**에 잡힌다는 점이 치명적이에요.
 ```c
 int somefunction(int y, int x, int array[y][x]);
 ```
-My peer reviewer: "wow [your filler](https://github.com/agavrel/42-filler) run so fast!"
-Me: "really ?" (how to tell them that it was not compliant with the norm? :D)
+동료: “와 [filler](https://github.com/agavrel/42-filler) 왜 이렇게 빨라요!”  
+나: “그래요?” (norm에 안 맞는 걸 어떻게 말하지… :D)
 
 ---
-## 0x09 ~ Using ft_ prefix for all functions
+<a id="0x09--using-ft_-prefix-for-all-functions"></a>
+## 0x09 ~ 모든 함수에 ft_ 붙이기
 
-*ft_* should only be added to functions you want to re-use through different projects (and add to your personal library, the libft project) not for specific program functions.
+*ft_*는 **여러 프로젝트에서 재사용**할 함수(개인 라이브러리 libft에 넣을 것들)에만 붙이세요. 과제 전용 함수까지 전부 ft_면 의미가 흐려집니다.
 
 
 ---
-## 0x0A ~ [Usage of Sequence Point](https://en.m.wikipedia.org/wiki/Sequence_point)
+<a id="0x0a--usage-of-sequence-point"></a>
+## 0x0A ~ [sequence point](https://en.m.wikipedia.org/wiki/Sequence_point)
 ```c
 #include <unistd.h>
 
@@ -1174,11 +1183,12 @@ int main()
 	return 0;
 }
 ```
-Guess what will be printed.
+뭐가 찍힐지 한번 맞혀 보세요.
 
 
 ---
-## 0x0B ~ Assignment of read-only location
+<a id="0x0b--assignment-of-read-only-location"></a>
+## 0x0B ~ 읽기 전용 위치에 대입
 ```c
 int main()
 {
@@ -1190,11 +1200,12 @@ int main()
 }
 ```
 
-You cannot change what you have declared as const.
+`const`로 잠가 둔 건 바꿀 수 없습니다.
 
 
 ---
-## OXOC ~ Carefully use define preprocessor macros
+<a id="oxoc--carefully-use-define-preprocessor-macros"></a>
+## OXOC ~ #define 매크로, 함부로 쓰지 않기
 
 ```c
 #include <stdio.h>
@@ -1211,26 +1222,27 @@ int main(void) {
 }
 ```
 
-This will return 5, becaure the compiler understand it as :
+이건 **5**가 나옵니다. 컴파일러가 이렇게 읽거든요:
 ```c
 int main(void) {
 	int a = 5;
 	int b = 42;
-	int c = 40 + 5 > 42 ? 5 : 42; // if 47 > 42 then c = a (5) , else c = b (42);
+	int c = 40 + 5 > 42 ? 5 : 42; // 40+5=45, 45>42 이면 c=5 아니면 42
 	...
 }
 ```
 
-The correct usage is to always encapsulate your ```#define``` with brackets to make sure it works as intended:
+맞게 쓰려면 ```#define```을 **괄호로 감싸** 의도한 순서로 평가되게 하세요.
 ```c
 #define MAX(a,b)	(a > b ? a : b)
 ```
 
-That said you should avoid using macros who act like functions in the first place. Also note that you should always capitalize macro names and const variables, it is a convention.
+그래도 애초에 **함수처럼 동작하는 매크로**는 가능한 피하는 게 좋습니다. 매크로 이름·`const` 값은 대문자로 쓰는 관례도 기억해 두고요.
 
 
 ---
-## 0x0D ~ Comparing float and double
+<a id="0x0d--comparing-float-and-double"></a>
+## 0x0D ~ float와 double 비교
 
 ```c
 #include <stdio.h>
@@ -1252,20 +1264,21 @@ int main(void) {
 }
 ```
 
-They are represented differently. If you want to learn more about how they work take a look at [wikipedia](https://en.wikipedia.org/wiki/Double-precision_floating-point_format) or wach below video.  
+둘은 비트 표현이 다릅니다. 더 파고들려면 [위키](https://en.wikipedia.org/wiki/Double-precision_floating-point_format)나 아래 영상을 보세요.  
 
 <a href="https://www.youtube.com/watch?v=PZRI1IfStY0" target="_blank"><img src="http://img.youtube.com/vi/PZRI1IfStY0/0.jpg"
 alt="Floating Point Numbers" width="240" height="180" border="10" /></a>
 
 
 ---
-## 0x0E ~ Wrong usage of pointers
+<a id="0x0e--wrong-usage-of-pointers"></a>
+## 0x0E ~ 포인터 잘못 쓰기
 
-Pointers are the memory location of the value of this variable
+포인터는 “그 변수 값이 놓인 **메모리 주소**”입니다.
 
-An example with ft_swap
+`ft_swap` 예시로 볼게요.
 
-### The wrong way to use pointers
+### 잘못된 예
 ```c
 void ft_swap(int *a, int *b)
 {
@@ -1277,9 +1290,9 @@ void ft_swap(int *a, int *b)
 }
 ```
 
-This will segfault, because you declared tmp as a pointer, but what you want is tmp to store the value of the memory address of a.
+여긴 segfault입니다. `tmp`를 포인터로만 선언해 놓고 역참조했거든요. 임시로 담을 건 **값**이어야 합니다.
 
-### The correct way to use pointers
+### 제대로 된 예
 ```c
 void ft_swap(int *a, int *b)
 {
@@ -1291,9 +1304,9 @@ void ft_swap(int *a, int *b)
 }
 ```
 
-### Swapping without using another variable
+### 다른 변수 없이 스왑
 ```c
-=void ft_swap(int *a, int *b)
+void ft_swap(int *a, int *b)
 {
 	*a ^= *b;		// (1) a = a ^ b
 	*b ^= *a;		// (2) b = b ^ (a ^ b) = a
@@ -1301,10 +1314,10 @@ void ft_swap(int *a, int *b)
 	
 }
 ```
-**NB: if you xor a number by itself you set it to 0. ```a ^= a;``` is equivalent to ```a = 0;```**  
-*If you like it you can [learn more about bitwise operations here](https://github.com/agavrel/42-Bitwise_Operators)*
+**NB: 같은 값으로 XOR 두 번 하면 0이 됩니다. ```a ^= a;```는 ```a = 0;```과 같습니다.**  
+*더 보고 싶다면 [비트 연산 모음](https://github.com/agavrel/42-Bitwise_Operators)으로.*
 
-### Main to test above functions
+### 위 함수들 테스트용 main
 ```c
 #include <stdio.h>
 
@@ -1321,9 +1334,10 @@ int main(void)
 ```
 
 ---
-## 0x0F ~ Undefined Behavior
+<a id="0x0f--undefined-behavior"></a>
+## 0x0F ~ undefined behavior
 
-Undefined behavior means that the result is **as much unpredictable as a [pangolin](https://en.wikipedia.org/wiki/Pangolin) sneezing in some faraway country**. *You don't want to have your program depending on it.*
+UB란, 결과가 **먼 나라에서 [천산갑](https://en.wikipedia.org/wiki/Pangolin)이 재채기할지 말지만큼** 예측 불가하다는 뜻에 가깝습니다. *프로그램의 운명을 여기에 걸고 싶진 않을 거예요.*
 
 ```c
 #include <stdio.h>
@@ -1347,30 +1361,31 @@ int main(int argc, char **argv) {
 		printf("%d\n", ++i);
 }
 ```
-*Try guessing the output*
+*출력을 맞혀 보세요.*
 
 
 ---
-## 0x10 ~ Operator Precedence
+<a id="0x10--operator-precedence"></a>
+## 0x10 ~ 연산자 우선순위
 
-Often you may write some code like:
+가끔 이런 코드를 씁니다:
 ```c
 return !(a & b << 8);
 ```
 
-This is bad because you ignore the rule of operator precedences, and should have written the return as:
+연산자 우선순위를 무시한 거라 나쁩니다. 이렇게 써야 합니다:
 ```c
 return !(a & (b << 8));
 ```
 
-Another example with pointers:
+포인터 예시도 있습니다:
 ```c
 *s->a++;
 (*s)->a++;
 (*s->a)++;
 ```
 
-Below you will find the full table of [operator precedence](https://en.cppreference.com/w/c/language/operator_precedence):
+전체 표는 [operator precedence](https://en.cppreference.com/w/c/language/operator_precedence)를 보세요. (아래 표 머리글은 원문 기호 유지)
 
 Precedence | Operator | Description | Associativity
 ---|---|---|---
@@ -1409,9 +1424,9 @@ Precedence | Operator | Description | Associativity
 
 ---
 
-## Conclusion: Condensed version of mistakes that still compile
+## 정리: 컴파일은 되는데 망가진 버전
 
-A full example of a program compiling but that will not work as intended:
+아래는 **빌드는 되지만** 의도대로 돌아가지 않는 예를 한 파일에 몰아 넣은 것입니다.
 
 ```c
 #include <stdio.h> // notably for printf
