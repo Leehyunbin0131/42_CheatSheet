@@ -173,90 +173,97 @@ C는 **조건** {if, else if, else}, **반복** {while, do while, for}, **write 
 <a id="0x01--for-candidates-about-the-piscine"></a>
 ## 0x01 ~ 지원자용: "Piscine" 이야기
 
-> **If you're going through hell, keep going.** ― *Winston Churchill*
+> **지옥을 걷고 있다면, 그냥 걸어 나가라.** ― *윈스턴 처칠*
 
-The piscine is the entrance exam that consists of **4 weeks fully dedicated to coding**, solving exercises and submitting solo and group projects to peer review.  
+**Piscine**은 입학 선발 과정으로, 보통 **약 한 달(캠퍼스마다 26일 안팎 등)** 동안 코딩에 몰입해 연습문제를 풀고, 솔로·그룹 프로젝트를 제출해 **동료 평가**를 받습니다. (일정·단계 이름은 캠퍼스마다 다를 수 있어요.)
 
-**It does not matter if you fail a project, an exam or a day as long as you keep striving**. Someone who has never been interested before in Computer Science would never be able to complete everything in time, yet he will not prevent from being successful.
+**프로젝트 하나, 시험 한 번, 하루를 망쳐도 상관없다. 포기만 않으면 된다.** CS에 한 번도 흥미를 안 느꼈던 사람이 기한 안에 전부 끝내긴 어렵지만, 그게 곧바로 불합격을 뜻하진 않습니다.
 
-### :coffee: My guess on the success criteria
-* **0x00 Come as you are** ... or forget this bullshit and prepare a little bit with [subjects on github](https://github.com/Binary-Hackers/42_Subjects/tree/master/01_Piscines/C/EN), courtesy of my friend binary hacker.
+<a id="coffee-my-guess-on-the-success-criteria"></a>
+### :coffee: 합격 기준, 내가 읽어본 바
 
-* **0x01 Prepare to nail the exams** on the 4 exams session, knowing that the 3 firsts exams are limited in term of how far you can go and it is not a big deal to miss the first 3 exams as the most important is IMHO the maximum level you can reach. **Succeeding the first 4 exercises (36 pts)** should be enough to make sure you quality.
+* **0x00 있는 그대로 와도 된다** … 아니면 그 멘트는 잊고, 친구 binary hacker가 모아 둔 [깃허브 과제 모음](https://github.com/Binary-Hackers/42_Subjects/tree/master/01_Piscines/C/EN)으로 살짝 예열해도 좋고요.
 
-* **0x02 Get an acceptable percentage of review from peers** (probably 80% is enough, but you would get 90 to 97% if you are nice). *Don't be too nice, but don't be a dick with [vim .swp files](https://lmgtfy.com/?q=What+is+the+purpose+of+swap+files%3F) and .DS_Store*.
+* **0x01 시험 4번 중 실전 감각**을 잡아 두세요. 앞의 3번은 “어디까지 갈 수 있는지”에 한계가 있어서, 세 번을 놓쳐도 크게 문제되진 않는 편이고, 제일 중요한 건 제가 보기엔 **도달한 최고 난이도**예요. **앞쪽 연습 4문제(36점)** 정도는 확실히 먹고 들어가면 “통과권”에 가깝게 안심이 됩니다.
 
->  [.DS_Store](https://en.wikipedia.org/wiki/.DS_Store) – The name of a file in the Apple OS X operating system for storing custom attributes of a folder such as the position of icons or the choice of a background image. These files are created when you manipulate your files with the [Finder GUI](https://en.wikipedia.org/wiki/Graphical_user_interface).
+* **0x02 동료 평가 점수는 그럭저럭** 받으면 됩니다(대략 80%면 충분한 것 같고, 사람 좋게 굴면 90~97%도 나와요). *너무 착한 척할 필요는 없고, [vim 스왑 파일](https://lmgtfy.com/?q=What+is+the+purpose+of+swap+files%3F)이나 .DS_Store로 동료를 괴롭히진 말자고요.*
 
-* **0x03 The logging time has no or very little influence**, I know it as a fact for seeing people constantly logged in (but slacking) failing the piscine and students barely present being accepted. However the more time you spend in 42 school will certainly directly influence your skills and positively impact other related topics
+> [.DS_Store](https://en.wikipedia.org/wiki/.DS_Store) – macOS에서 폴더 아이콘 위치·배경 같은 메타를 저장하는 파일입니다. [Finder](https://en.wikipedia.org/wiki/Graphical_user_interface)로 만지면 생겨요.
 
-* **0x04 It is strongly recommended to succeed at least one group project**, especially the first one that is really easy.
+* **0x03 로그인 시간은 별 영향 없다**는 걸 봤어요. 줄곧 붙어 있으면서 농땡이 치다 떨어진 사람도 있고, 거의 안 와도 붙은 사람도 있죠. 다만 학교에 쏟는 시간이 실력과 주변 주제엔 분명 도움이 됩니다.
 
-* **0x05 There is a special and unique achievement awarded to the most helpful/smart student.** This achievement does not show up on the student profile until he asks for it.
+* **0x04 그룹 프로젝트는 최소 한 번** 통과하는 걸 강하게 추천합니다. 첫 번째는 특히 쉬운 편이에요.
 
-* **0x06 Be aware of the different rules** : Many things are forbidden like declaring and assigning a variable in the same line, using printf or using for loops. The daily assignment must be pushed on git before Day + 1 at 11pm42.
+* **0x05 가장 도움 되고 똑똑한 사람에게 주는 특별 업적**이 있습니다. 본인이 요청하기 전엔 프로필에 안 뜰 수도 있어요.
 
-* **0x07 [Boys Only] Don't waste time flirting** : For some who have been living in the basement of their parents' house for years it is a good opportunity to see what a girl looks like in real life. Nevertheless, you have to under that 1/this is not the right time and place to do so.
+* **0x06 규칙을 숙지하세요.** 한 줄에 선언+대입 금지, printf 금지, for 금지 같은 게 많습니다. 일일 과제는 **Day+1 23시 42분(11:42:42)** 전에 git에 올려야 한다는 식의 리듬도 익혀 두세요(캠퍼스·시기별로 다를 수 있음).
 
-* **0x08 You can sleep in the school during the selection** - *I recommended you to not do it, you will have very poor sleep.* - If you still go for it here is a list of essential items you should bring: **a toothpaste, a toothbrush, a soap and a towel on top of your phone, charger and mattress. Oh and a credit card also, unless you prefer to bring 10kg of cookies**
+* **0x07 [남성 지원자에게]** 썸 타느라 시간 태우지 마세요. 농담 섞인 문장이긴 한데, 지금은 그럴 때가 아니라는 건 진심입니다.
 
-So whatever how dire the situation is looking (you failed all your days, exams etc), if you can keep your enthusiasm and your spirit up, you will eventually succeed !
+* **0x08 선발 기간엔 학교에서 잘 수도 있어요** — *비추합니다. 잠만 나빠져요.* — 그래도 간다면 챙길 것: **치약·칫솔·비누·수건**, 그리고 폰·충전기·매트리스. **카드**도 있어야 하고, 안 가져오면 쿠키 10kg 들고 오든가요.
 
-> **“Success is stumbling from failure to failure with no loss of enthusiasm.** ― *Winston Churchill*
+아무리 날이 서 있어도(매일 망하고 시험도 꼬여도) **열정과 기세만 안 꺾이면** 결국은 통과합니다.
 
-[I made a video on how to make sure that you succeed the entrance exam](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+> **성공이란 열정을 잃지 않고 실패에서 실패로 비틀거리며 나아가는 것이다.** ― *윈스턴 처칠*
 
-### :star: List of Essential Items
+[입시에 꼭 붙게 해 주는 영상을 만들어 뒀습니다](https://www.youtube.com/watch?v=dQw4w9WgXcQ) (원문 링크 그대로 — 인터넷 밈입니다.)
 
-> **Towels are extremely useful for cleaning up messes and drying off your body. You can set it on fire as a weapon, chase off enemies, and use it as a distress signal. Life is messy and sometimes dangerous. Space is even messier and more dangerous. Be like Arthur Dent and keep up with your towel** ― *[17 Life Lessons From HITCHHIKER’S GUIDE Hero Arthur Dent](https://nerdist.com/article/hitchhikers-guide-life-lessons-arthur-dent/?amp)*
+<a id="star-list-of-essential-items"></a>
+### :star: 챙겨 갈 것들
 
-:sleeping_bed: Mattress or equivalent and Pillow  
-:electric_plug: Phone charger  
-:iphone: Phone  
-:droplet: Toothpaste and Toothbrush  
-:bathtub: Soap and 2-4 Towels  
-:money_mouth_face: Credit Card  
-:heart: Kleenex  
+> **수건은 엉망을 닦고 몸을 말리는 데 쓰인다. 불 붙이면 무기가 되고, 적을 쫓거나 조난 신호로도 쓸 수 있다. 인생은 지저분하고 위험할 때가 있고, 우주는 더하다. 아서 덴트처럼 수건을 잊지 마라.** ― *[히치하이커 히어로 아서 덴트에게서 배운 인생 교훈 17가지](https://nerdist.com/article/hitchhikers-guide-life-lessons-arthur-dent/?amp)*
+
+:sleeping_bed: 매트리스(또는 그에 맞는 것)와 베개  
+:electric_plug: 폰 충전기  
+:iphone: 폰  
+:droplet: 치약·칫솔  
+:bathtub: 비누와 수건 2~4장  
+:money_mouth_face: 신용카드  
+:heart: 휴지  
 
 
 ---
-## 0x02 ~ Coding simple C programs
+<a id="0x02--coding-simple-c-programs"></a>
+## 0x02 ~ 간단한 C 프로그램 짜기
 
-> **시작이 반이다** ― *The beginning is half of the way (Korean proverb)* 
+> **시작이 반이다** ― *옛말에, 시작이 반이라 했다.*
 
-### First by installing a C compiler on your computer
-* On Windows it is a bit tricky, you will have to install [Mingw](http://www.mingw.org/)
-* On Linux it is pretty straightforward since it is only installed and if not ```apt-get``` will make it easy.
-* On MAC it is not much more difficult, google how to do it.
+<a id="first-by-installing-a-c-compiler-on-your-computer"></a>
+### 먼저 PC에 C 컴파일러 깔기
+* Windows는 조금 귀찮고, [MinGW](http://www.mingw.org/) 같은 걸 깔아야 합니다.
+* Linux는 보통 이미 있고, 없으면 ```apt-get```으로 금방입니다.
+* Mac도 비슷한 난이도 — “맥에 gcc clang 설치” 정도로 검색해 보세요.
 
-### C Data Types
+<a id="c-data-types"></a>
+### C 자료형
 
-I will only list the main ones
+자주 쓰는 것만 짚을게요.
 
-|Data Type|Bytes|Description|
+|자료형|바이트|설명|
 |-|-|-|
-|char|1|Used for text
-|bool|1|Used to return true or false, you will need the header <stdbool.h>
-|short|2|Half the size of an integer, used to optimize memory
-|int|4|Loop Counter, operations on integers
-|long|8|Twice the size of an integer, used when overflow is a problem
-|float|4|Used for computer graphics
-|double|8|Used for computer graphics, more precised than float but takes more memory
-|unsigned|.|Apply to char, short, int and long, means than it cannot have negative values
+|char|1|문자
+|bool|1|참/거짓. `<stdbool.h>` 필요
+|short|2|int의 절반 크기, 메모리 아낄 때
+|int|4|반복문 카운터, 정수 연산
+|long|8|int의 두 배, 오버플로가 걱정될 때
+|float|4|그래픽 등
+|double|8|그래픽 등, float보다 정밀하지만 더 큼
+|unsigned|.|char·short·int·long에 붙이면 음수 없음
 
-You should then try to recode basic C functions
+이제 libc에 있는 기본 함수들을 **직접 다시 짜 보는** 연습을 해 보세요.
 
-### Pointers
+<a id="pointers"></a>
+### 포인터(pointers)
 
-> [In computer science, a pointer is a programming language object that stores a memory address.](https://en.wikipedia.org/wiki/Pointer_(computer_programming))
+> [포인터는 메모리 주소를 담는 언어 요소다.](https://en.wikipedia.org/wiki/Pointer_(computer_programming))
 
-**Pointer is a fundamental concept of C programming**.
+**C에서 빼놓을 수 없는 개념**입니다.
 
-**You can think of your computer's memory as a contiguous array of bytes**. Each time that you make an innocent declaration and assignation such as **`int a = 5`**, this value is written into your computer's memory on 4 bytes (integer size).
-This value will be written at a specific memory address, the **stack** (fast access to memory) if no memory allocation, else it will be stored deeper in the **heap**. This address also has a value!
+**RAM을 길게 이어 붙인 바이트 띠**라고 상상해 보세요. **`int a = 5`**처럼 순진하게 선언·대입할 때마다, 그 값은 int 크기인 4바이트에 기록됩니다.
+그 위치는 **stack**(빠른 쪽, 할당 없을 때)이거나, 할당이 있으면 더 깊은 **heap** 쪽 주소가 됩니다. 그리고 그 주소 자체도 또 하나의 값이에요.
 
 
-*Example illustrating the difference a pointer - a memory address pointing to value - and a value:*
+*포인터(값을 가리키는 주소)와 값 자체의 차이를 보여 주는 예:*
 
 ```c
 #include <stdio.h>
@@ -287,16 +294,16 @@ ptr's value: 42, ptr's address: 0x7ffd99492f08  <-- they now match thanks to ptr
   b's value:  5,   b's address: 0x7ffd99492f0c
 ```
 
-**NB: On the second printf you will get the value that you got for `a`, notice that you have to dereference the pointer with * to get the value, and using the pointer alone (ptr) will give you the memory address.**
+**NB: 두 번째 printf 이후에는 `a`와 같은 값이 나옵니다. 값을 보려면 포인터를 `*`로 역참조하고, `ptr`만 쓰면 메모리 주소가 나온다는 점을 기억하세요.**
 
 
-#### [About Endianness](https://en.wikipedia.org/wiki/Endianness).
+#### [Endianness](https://en.wikipedia.org/wiki/Endianness)
 
-Values are stored differently depending on the kind of system you are using.
+시스템마다 값이 메모리에 깔리는 방식이 다릅니다.
 
-Little endian means that the value is stored in memory from left to right, big endian means it is stored from right to left.
+Little endian은 낮은 바이트가 앞쪽 주소에 오는 식이고, big endian은 반대로 높은 바이트가 앞에 옵니다.
 
-*[See this example with int a = 9](https://stackoverflow.com/questions/12791864/c-program-to-check-little-vs-big-endian/12792301#12792301):*
+*[int a = 9 예시](https://stackoverflow.com/questions/12791864/c-program-to-check-little-vs-big-endian/12792301#12792301):*
 
 ```
 little endian: 
@@ -318,18 +325,19 @@ big endian:
    &x
 ```
 
-*To find out if your system is big or little endian you can use the [following function](https://stackoverflow.com/questions/4181951/how-to-check-whether-a-system-is-big-endian-or-little-endian/4181991):*
+*big / little을 가려내려면 [이런 코드](https://stackoverflow.com/questions/4181951/how-to-check-whether-a-system-is-big-endian-or-little-endian/4181991)를 쓸 수 있습니다.*
 ```c
 int x = 9;
 
-if (*(char *)&x == 0x09) // we cast x as a byte to get its very first byte, it will return true (meaning little endian) if the first byte is equal to 9.
+if (*(char *)&x == 0x09) // x를 바이트로 보고 맨 앞 바이트만 꺼낸다. 9면 little endian 쪽.
 ```
 
+<a id="ft_putchar"></a>
 ### ft_putchar
 
-*A minimalist c program that will puzzle beginners, write it in a file named a.c and create a.out with ```gcc a.c && ./a.out```*
+*초보를 잠깐 헷갈리게 하는 미니멀한 C 예제. `a.c`에 저장하고 ```gcc a.c && ./a.out```으로 `a.out`을 만드세요.*
 
-The following program will print a char by making use of [write](http://man7.org/linux/man-pages/man2/write.2.html)
+아래는 [write(2)](http://man7.org/linux/man-pages/man2/write.2.html)로 문자 하나를 찍습니다.
 
 ```c
 #include <unistd.h>
@@ -347,8 +355,9 @@ int	main(void) {
 }
 ```
 
-Once you understand well how to print a character, you should try to return the length of many together (it is called a [string](https://en.wikipedia.org/wiki/String_(computer_science)))
+문자 하나가 익숙해지면, 이어 붙인 글자들의 길이를 돌려주는 [string](https://en.wikipedia.org/wiki/String_(computer_science))을 만들어 보세요.
 
+<a id="ft_strlen"></a>
 ### ft_strlen
 
 ```c
@@ -368,11 +377,12 @@ int main(void) {
 	return 0;
 }
 ```
-*NB: remember that it is forbidden to submit a function with printf during the Piscine*
+*NB: Piscine 제출물에 printf를 섞어 넣는 건 금지라는 점, 잊지 마세요.*
 
+<a id="ft_putstr"></a>
 ### ft_putstr
 
-Then print a whole string by recoding the libc function 'puts':
+이번엔 libc의 `puts`를 흉내 내서 **문자열 전체**를 출력해 봅니다.
 ```c
 #include <stdio.h> // header for puts
 
@@ -382,7 +392,7 @@ int main(void) {
 }
 ```
 
-This can be achieve by using and index that starts on the first character and is progressively incremented until NULL as string are NULL terminated:
+문자열은 널로 끝나니까, 인덱스를 0에서 키우며 `\0` 전까지 `write`를 돌리면 됩니다.
 ```c
 #include <unistd.h>
 
@@ -394,7 +404,7 @@ void	ft_putstr(char *str) {
 }
 ```
 
-Along with the main function slightly modified to make use of your code:
+`main`은 이렇게만 바꿔 주면 됩니다.
 ```c
 int main(void) {
 	ft_putstr("Duck Tales");
@@ -402,38 +412,41 @@ int main(void) {
 }
 ```
 
-You can also use only the pointer since you do not care of the return value (the function type being void)
+반환값이 없으니(void) 인덱스 대신 포인터만 밀어 가도 됩니다.
 ```c
 #include <unistd.h>
 
 void	ft_putstr(char *str) {
 	while(*str)
-		write(1, s++, 1);
+		write(1, str++, 1);
 }
 ```
 
-Or even use the length of the string to print the whole string at once, hence avoiding many *[system calls](https://en.wikipedia.org/wiki/System_call) (write)* that are costly for the program execution:
+아니면 길이를 한 번에 구해 `write` 한 방으로 보내서, 비싼 **[시스템 콜](https://en.wikipedia.org/wiki/System_call)(write)** 호출 횟수를 줄일 수도 있습니다.
 
 ```c
 void	ft_putstr(char *str) {
 	write(1, str, ft_strlen(str));
 }
 ```
-*NB: You have to include ft_strlen in the same file AND above the function to make it work.*
+*NB: `ft_strlen`은 같은 파일에 있어야 하고, 이 함수 **위쪽**에 두어야 컴파일이 됩니다.*
 
-Next you should **study the different concepts in programming**, especially spend time understanding the different [C data types](https://en.wikipedia.org/wiki/C_data_types), [the concept of pointers](https://en.wikipedia.org/wiki/Pointer_(computer_programming)) and [arrays](https://en.wikipedia.org/wiki/Array_data_type), because it is what you have been using up to now and it will only get more complicated.
+이제 **[C 자료형](https://en.wikipedia.org/wiki/C_data_types)**, **[포인터](https://en.wikipedia.org/wiki/Pointer_(computer_programming))**, **[배열](https://en.wikipedia.org/wiki/Array_data_type)**을 시간 들여 이해하세요. 지금까지 쓴 게 전부이고, 앞으로는 더 복잡해집니다.
 
 
 ---
-## 0x03 ~ 42 Projects Guides
+<a id="0x03--42-projects-guides"></a>
+## 0x03 ~ 42 프로젝트 가이드
 
-> **Do what you think is interesting, do something that you think is fun and worthwhile, because otherwise you won’t do it well anyway.** ― *Brian W. Kernighan*
+> **본인이 재밌다고 느끼는 걸 하라. 가치 있다고 믿는 걸 하라. 안 그러면 어차피 잘 안 된다.** ― *브라이언 W. 커니핸*
 
-|Name|Track|Hashtags|What you will learn|
+> **참고:** 아래 표의 프로젝트 이름·트랙은 **구 커리큘럼 기준** 예시입니다. 최신 cursus(예: 42Next)와 캠퍼스별 필수 과제는 공식 인트라를 확인하세요.
+
+|이름|트랙|해시태그|배우는 것|
 |-|-|-|-|
 |Fillit|General|Architecture, Parsing, Algo|[Description from a student](https://medium.com/@bethnenniger/fillit-solving-for-the-smallest-square-of-tetrominos-c6316004f909)|
 |Printf|Algorithm|Architecture, Parsing, utf-8|[UTF-8 Conversion table](https://en.wikipedia.org/wiki/UTF-8)<br>[Variadic Function](https://en.wikipedia.org/wiki/Variadic_function)|
-|[Filler](https://github.com/agavrel/42-filler)|Algorithm|Parsing, Algo, Bot|42 forums have good threads on this project|
+|[Filler](https://github.com/agavrel/42-filler)|Algorithm|Parsing, Algo, Bot|42 포럼에 좋은 글이 많음|
 |Lem-In|Algorithm|Parsing, Algo, Chained-Lists|[Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)|
 |Corewar|Algorithm|Architecture, parsing, disassembler, virus, VM|[About the original Game](https://en.wikipedia.org/wiki/Core_War)|
 |LS|System|Parsing, Recursion, Chained-Lists|[The Good Old Manual](http://man7.org/linux/man-pages/man1/ls.1.html)|
@@ -444,31 +457,35 @@ Next you should **study the different concepts in programming**, especially spen
 |[Cube3d - Wolf3d](https://lodev.org/cgtutor/raycasting.html)|Computer Graphics|Ray Casting, Rotation|[About the original Wolfenstein 3d](https://en.wikipedia.org/wiki/Wolfenstein_3D)|
 |NmOtool|System|Symbol Table, .dll .so|[Implement List the symbols in a .so file](https://stackoverflow.com/questions/34732/how-do-i-list-the-symbols-in-a-so-file)
 |LibftAsm|System|x86 Assembly Instructions|[Refer to the Intel Bible](https://software.intel.com/en-us/articles/intel-sdm)
-|[RT](https://github.com/Chr0nos/rt)|Computer Graphics|Ray Tracing|Create a Scene of enlightened polygons 
-|[Scop](https://github.com/Gpinchon/Scop42)|Computer Graphics|Shading|Create a Shader
-|Particles System|Computer Graphics|Graphics Effects|[simulate certain kinds of "fuzzy" phenomena](https://en.wikipedia.org/wiki/Particle_system)
+|[RT](https://github.com/Chr0nos/rt)|Computer Graphics|Ray Tracing|조명 다각형 씬 만들기 
+|[Scop](https://github.com/Gpinchon/Scop42)|Computer Graphics|Shading|셰이더 작성
+|Particles System|Computer Graphics|Graphics Effects|[“흐릿한” 현상 시뮬레이션](https://en.wikipedia.org/wiki/Particle_system)|
 
 ---
-## 0x04 ~ Choosing your Path
+<a id="0x04--choosing-your-path"></a>
+## 0x04 ~ 길 고르기
 
-> **Never give up on something that you can't go a day without thinking about** ― *Winston Churchill*
+> **하루도 안 떠올릴 수 없는 걸, 포기하지 마라.** ― *윈스턴 처칠*
 
-### How to choose your specialization
+### 전공(트랙) 고르는 법
 
-There are currently 4 main branches: [Infographics](https://en.wikipedia.org/wiki/Infographic), Algorithms, System and Web.
-All branchs are interesting and you should try to explore each branch's initial project:
-* If you are aiming to work in the video game industry and like Mathematics then you should go for **Infographics**. Remember that this path is tough and not necessarily as rewarding as the other ones, but you will have the luxury to work in the video game industry.
-* **Algorithm branch** is/was mainly based on flawless parsing and not so much on algorithm quality. Fortunately with the nomination of Benny as the head of the Pedagogy there will be more efforts to reward smart algorithms. Algorithms is the best one if you want to join a prestigious company like Google
-* **System** is the best for those who like security, network and how computers truly work since you will have to ultimately recode your own operating system.
-* **Web** is good for those who like to build websites, perhaps mobile app as well (react native) and want to become a freelancer.
+큰 줄기는 네 가지 정도로 보면 됩니다: [Infographics](https://en.wikipedia.org/wiki/Infographic)(그래픽·게임 쪽에 가깝게 쓰인 표현), Algorithms, System, Web.  
+(실제 캠퍼스의 트랙 이름·구성은 다를 수 있어요.)
+
+* **게임 업계**를 노리고 수학을 좋아하면 **Infographics** 쪽을 보세요. 험한 길이고 다른 트랙만큼 “보상감”이 오는 건 아닐 수도 있지만, 게임 쪽으로 갈 통행권에 가깝습니다.
+* **Algorithm** 트랙은 (과거 기준으로) **파싱을 빈틈없이** 하는 쪽이 강조됐고, 알고리즘 자체의 우아함은 그다지였다는 말도 있습니다. 다만 교육 쪽 인사 변화 등으로 똑똑한 알고리즘을 더 인정하는 방향으로 움직이기도 했고요. 구글 같은 데 가고 싶다면 여기가 무난한 출발점입니다.
+* **System**은 보안·네트워크·“컴퓨터가 진짜로 어떻게 도는지”를 좋아하면 최고입니다. 결국 OS를 직접 짜 보게 되니까요.
+* **Web**은 사이트·(React Native 같은) 모바일까지 손대고 **프리랜서** 쪽을 생각하면 잘 맞습니다.
 
 
 ---
-## 0x05 ~ Swindle the norminette - *truander la norme*
+<a id="0x05--swindle-the-norminette---truander-la-norme"></a>
+## 0x05 ~ norminette와 우회술 *truander la norme*
 
-### While loops
+<a id="while-loops"></a>
+### while 루프
 
-*Only 25 lines ? No problem:*
+*25줄 제한? 문제 없지:*
 ```c
 int draw_lines(int len) { // NB: len is positive or equal to 0
 	int i;
@@ -482,7 +499,7 @@ int draw_lines(int len) { // NB: len is positive or equal to 0
 	}
 }
 ```
-**Originally 9 lines**
+**원래 9줄**
 
 ```c
 int draw_lines(int len) {
@@ -493,27 +510,28 @@ int draw_lines(int len) {
 		draw_lines(i);
 }
 ```
-**Now 5 lines**
+**지금 5줄**
 
 ```c
 int draw_lines(int len) {
 	while (--len >= 0 && puts("Looping")) // it works
-		draw_lines(len); // NB: make sure that drawing backward does not impact algo
+		draw_lines(len); // NB: 역방향이 알고리즘에 영향 없는지 확인
 }
 ```
-**2 lines**
+**2줄**
 
 ```c
-int draw_lines(int len, int i) { // If you really need to call from 0 to len then you can also have i passed as a parameter = -1
+int draw_lines(int len, int i) { // 0부터 len까지 꼭 돌려야 하면 i를 인자로 넘기는 꼼수(-1부터)
 	while (++i < len && puts("Looping"))
 		draw_lines(i);
 }
 ```
-**2 lines, with prototype modification (ugly)**
+**2줄, 프로토타입까지 건드림(추천하진 않음)**
 
 
 ---
-### [If brackets](https://github.com/keuhdall)
+<a id="if-brackets"></a>
+### [if 중괄호](https://github.com/keuhdall)
 
 ```c
 if (true)
@@ -532,10 +550,11 @@ if (true)
 ```
 **4 lines**  
 
-**NB: Beware of these tricks, it could potentially make your program less efficient. In the above example you use two [branching instructions](https://en.wikipedia.org/wiki/Branch_(computer_science)) - *if* - instead of one and in the while example the -1 initialization and puts inside the while hinder readability**
+**NB: 이런 요령은 성능을 깎아 먹을 수도 있습니다. 위 예에선 [분기(branch)](https://en.wikipedia.org/wiki/Branch_(computer_science))가 *if* 하나 대신 두 번 돌고, while 예시는 `-1` 초기화랑 while 안의 `puts` 때문에 읽기도 어려워집니다.**
 
 ---
-### [Write colorful usage](https://github.com/mrdotb)
+<a id="write-colorful-usage"></a>
+### [컬러풀한 usage](https://github.com/mrdotb)
 ```c
 int	usage(void)
 {
@@ -555,7 +574,8 @@ int	usage(void)
 ```
 
 ---
-### [Function Pointers](https://github.com/mrdotb)
+<a id="function-pointers"></a>
+### [함수 포인터](https://github.com/mrdotb)
 
 ```c
 void			listen_keystroke(t_dlist **lst)
@@ -578,9 +598,10 @@ void			listen_keystroke(t_dlist **lst)
 ```
 
 ---
-## 0x06 ~ Impossible is not C
+<a id="0x06--impossible-is-not-c"></a>
+## 0x06 ~ 불가능은 C에 없다
 
-### Negative index Array
+### 음수 인덱스 배열
 
 ```c
 #include <limits.h>	// INT_MAX
@@ -596,9 +617,9 @@ int main(void) {
 }
 ```
 
-### It's just a pointer game
+### 그냥 포인터 짓거리다
 
-Did you know ? Instead of writing array[index], you can write index[array]:
+아시나요? `array[index]` 대신 `index[array]`도 됩니다.
 ```c
 int ft_strlen(char *str) {
 	int i = 0;
@@ -609,7 +630,7 @@ int ft_strlen(char *str) {
 }
 ```
 
-Because this is understood by the compiler as pointer arithmetic:
+컴파일러는 이걸 포인터 연산으로 이렇게 읽거든요:
 ```c
 int ft_strlen(char *str) {
 	int i = 0;
@@ -620,9 +641,9 @@ int ft_strlen(char *str) {
 }
 ```
 
-### Get function name, filename or even line number
+### 함수 이름·파일 이름·줄 번호까지
 
-```__FILE__```, ```__FUNCTION__``` and ```__LINE__``` macros can be very helpful to display meaningful error messages for both users and developers:
+```__FILE__```, ```__FUNCTION__```, ```__LINE__``` 매크로는 사용자·개발자 모두에게 **뜻 있는 에러 메시지**를 뿌릴 때 요긴합니다.
 
 ```c
 #include <stdbool.h>	// bool
@@ -687,16 +708,16 @@ char	*ft_itoa(int n)
 	return (s);
 }
 ```
-If you don't know what variadic functions are, ```#include <stdarg.h>```, you can check [my implementation of printf](https://github.com/agavrel/42-ft_printf/blob/master/srcs/ft_printf.c)
+가변 인자(variadic)가 뭔지 모르겠다면 ```#include <stdarg.h>```부터 보고, [제 ft_printf 구현](https://github.com/agavrel/42-ft_printf/blob/master/srcs/ft_printf.c)도 참고해 보세요.
 
-### Setting values of a struct to 0 without using memset or bzero
+### memset / bzero 없이 struct를 0으로
 
-You can use either:
+둘 중 하나면 됩니다.
 ```c
 t_mystruct mystruct = {};
 ```
 
-or, to comply with 42 Norminette that forbid declaration and assignation on the same row:
+한 줄에 선언+대입이 금지된 **Norminette**를 맞추려면:
 ```c
 t_mystruct mystruct;
 mystruct = (t_mystruct){};
@@ -704,14 +725,16 @@ mystruct = (t_mystruct){};
 
 
 ---
-# :fire: Common Beginner Mistakes
+<a id="fire-common-beginner-mistakes"></a>
+# :fire: 흔한 초보 실수
 
-> **Experience is the name everyone gives to their mistakes** – *[Oscar Wilde](https://en.wikipedia.org/wiki/The_Picture_of_Dorian_Gray)*
+> **경험이란, 사람들이 제 실수에 붙이는 이름이다** – *[오스카 와일드](https://en.wikipedia.org/wiki/The_Picture_of_Dorian_Gray)*
 
 ---
-## 0x00 ~ Array overflow
+<a id="0x00--array-overflow"></a>
+## 0x00 ~ 배열 밖으로 나가기
 
-In C the index of an array starts at 0. Because C does not perform boundary checking when using arrays, if you access outside the bounds of a stack based array it will just access another part of already allocated stack space, like in this example:
+C에서 배열 인덱스는 0부터입니다. 배열에 대해 **경계 검사를 해 주지 않기 때문에**, 스택에 잡힌 배열 밖을 읽으면 그냥 이미 잡혀 있는 스택의 다른 구역을 건드립니다. 예를 들면:
 
 ```c
 #include <stdio.h>
