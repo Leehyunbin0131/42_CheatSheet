@@ -1,6 +1,6 @@
 # 42 School Cheat Sheet by [agavrel](https://www.github.com/agavrel)
 
-> 🌐 **Language / 언어:** English | [한국어(Korean)](README.md)
+> 🌐 **Language / 언어:** English (this file) · [한국어 (Korean)](README.ko.md) · [README.md](README.md) (repository default)
 
 ## :two_hearts: Intended for 42 alumni, current students and candidates
 
