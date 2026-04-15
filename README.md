@@ -1902,9 +1902,13 @@ Keyword | Meaning
 
 
 ---
-# Programmer Tools
+<a id="programmer-tools"></a>
+# 개발자 도구
+
+*(이 장 본문은 아직 영어가 많습니다. 구간별 번역 예정입니다.)*
 
 ---
+<a id="0x00--code-editors"></a>
 ## 0x00 ~ Code Editors
 
 ### Vim, Code Editor used in 42
@@ -2161,13 +2165,15 @@ Then
 
 
 ---
-# :gem: Curated list of Programming Learning Materials
+<a id="gem-curated-list-of-programming-learning-materials"></a>
+# :gem: 골라 읽을 프로그래밍 자료
 
-*Only petty thieves would google the following material, adding "torrent" or "pdf" keywords, real Gentlemen would purchase a digital copy*  
+*아래 자료를 “torrent”나 “pdf”를 붙여 검색하는 건 소매치기 기질이고, 진짜 신사는 디지털 정본을 삽니다.*  
 
-**NB: If you want to complain about a copyright enfringment, kindly raise an issue or send me an email and I will remove the offending link**  
+**NB: 저작권 문제가 있다면 이슈나 메일로 알려 주시면 링크를 내리겠습니다.**  
 
 ---
+<a id="0x00--c-knowledge"></a>
 ## 0x00 ~ C Knowledge
 
 ```c
@@ -2415,7 +2421,10 @@ Book | **[Elon Musk Biography](https://www.goodreads.com/book/show/25541028-elon
 
 
 ---
-# Tutorials
+<a id="tutorials"></a>
+# 튜토리얼
+
+*(이 장 본문은 아직 영어가 많습니다. 구간별 번역 예정입니다.)*
 
 <a href="https://www.youtube.com/watch?v=Jen46qkZVNI&t=30s" target="_blank"><img src="http://img.youtube.com/vi/Jen46qkZVNI/0.jpg"
 alt="Boxer's Perfect Rush SCV" width="240" height="180" border="10" /></a>
