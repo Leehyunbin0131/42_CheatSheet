@@ -1,134 +1,138 @@
-# 42 School Cheat Sheet by [agavrel](https://www.github.com/agavrel)
+# [agavrel](https://www.github.com/agavrel)의 42 스쿨 치트시트
 
-## :two_hearts: Intended for 42 alumni, current students and candidates
+## :two_hearts: 42 동문, 재학생, 지원자를 위해 정리했습니다
 
-> **Truth can only be found in one place: the code** – *Robert C. Martin, Clean Code: A Handbook of Agile Software Craftsmanship*
+> **진실은 한 곳에만 있다. 바로 코드 안에.** – *로버트 C. 마틴, Clean Code: A Handbook of Agile Software Craftsmanship*
 
-A comprehensive guide to 50 years of evolution of strict C programming, a tribute to Dennis Ritchie's language
+엄격한 C가 반세기 동안 어떻게 쌓여 왔는지 짚는 길잡이이자, 데니스 리치의 언어에 바치는 작은 헌사입니다.
+
+> **참고:** 입학 단계 이름(Check-in / Meeting 등), Piscine 기간, 커리큘럼(예: 42Next)은 **캠퍼스·연도**마다 바뀝니다. 아래 42 관련 서술은 공개된 42 네트워크·각 캠퍼스 안내를 바탕으로 2026년 기준으로 다듬었으나, 최종 일정·규정은 **지원하는 캠퍼스 공식 페이지**를 따르세요.
 
 ---
-# Table of Content
+# 목차
 
-* **[0. About 42 School](#about-42-school)**
-    * **[0x00 ~ What is 42 School](#0x00--what-is-42-school)**
-    * **[0x01 ~ For Candidates: About the "Piscine"](#0x01--for-candidates-about-the-piscine)**    
-        * **[My guess on the success criteria](#coffee-my-guess-on-the-success-criteria)**  
-        * **[List of Essential Items](#star-list-of-essential-items)**  
-    * **[0x02 ~ Coding simple C programs](#0x02--coding-simple-c-programs)**  
-        * **[First by installing a C compiler on your computer](#first-by-installing-a-c-compiler-on-your-computer)**  
-		* **[C Data Types](#c-data-types)**  
-		* **[Pointers](#pointers)**  
+* **[0. 42 스쿨이란](#about-42-school)**
+    * **[0x00 ~ 42 스쿨이 뭔가요](#0x00--what-is-42-school)**
+    * **[0x01 ~ 지원자용: "Piscine" 이야기](#0x01--for-candidates-about-the-piscine)**    
+        * **[합격 기준, 내가 읽어본 바](#coffee-my-guess-on-the-success-criteria)**  
+        * **[챙겨 갈 것들](#star-list-of-essential-items)**  
+    * **[0x02 ~ 간단한 C 프로그램 짜기](#0x02--coding-simple-c-programs)**  
+        * **[먼저 PC에 C 컴파일러 깔기](#first-by-installing-a-c-compiler-on-your-computer)**  
+		* **[C 자료형](#c-data-types)**  
+		* **[포인터(pointers)](#pointers)**  
         * **[ft_putchar](#ft_putchar)**  
         * **[ft_strlen](#ft_strlen)**  
         * **[ft_putstr](#ft_putstr)**  
-    * **[0x03 ~ 42 Projects Guides](#0x03--42-projects-guides)**  
-    * **[0x04 ~ Choosing your Path](#0x04--choosing-your-path)**  
-    * **[0x05 ~ Swindle the norminette - *truander la norme*](#0x05--swindle-the-norminette---truander-la-norme)**  
-        * **[While Loops](#while-loops)**  
-        * **[If Brackets](#if-brackets)**  
-        * **[Write Colorful Usage](#write-colorful-usage)**  
-        * **[Function Pointers](#function-pointers)**  
-	* **[0x06 ~ Impossible is not C](#0x06--impossible-is-not-c)**  
+    * **[0x03 ~ 42 프로젝트 가이드](#0x03--42-projects-guides)**  
+    * **[0x04 ~ 길 고르기](#0x04--choosing-your-path)**  
+    * **[0x05 ~ norminette와 우회술 *truander la norme*](#0x05--swindle-the-norminette---truander-la-norme)**  
+        * **[while 루프](#while-loops)**  
+        * **[if 중괄호](#if-brackets)**  
+        * **[컬러풀한 usage 쓰기](#write-colorful-usage)**  
+        * **[함수 포인터](#function-pointers)**  
+	* **[0x06 ~ 불가능은 C에 없다](#0x06--impossible-is-not-c)**  
 
 ---
-* **[1. Common Beginner Mistakes](#fire-common-beginner-mistakes)**  
-    * **[0x00 ~ Array Overflow](#0x00--array-overflow)**  
-    * **[0x01 ~ Segmentation Fault](#0x01--segmentation-fault)**  
+* **[1. 흔한 초보 실수](#fire-common-beginner-mistakes)**  
+    * **[0x00 ~ 배열 밖으로 나가기](#0x00--array-overflow)**  
+    * **[0x01 ~ Segmentation fault](#0x01--segmentation-fault)**  
     * **[0x02 ~ Bus error](#0x02--bus-error)**  
     * **[0x03 ~ Stack smashing](#0x03--stack-smashing)**  
-    * **[0x04 ~ Modifying value of a local variable given as function parameter](#0x04--modifying-value-of-a-local-variable-given-as-function-parameter)**  
-    * **[0x05 ~ Unprotected Malloc](#0x05--unprotected-malloc)**  
-    * **[0x06 ~ Freeing memory that has already been fred](#0x06--freeing-memory-that-has-already-been-fred)**  
-    * **[0x07 ~ Do Not Use Global Variables](#0x07--do-not-use-global-variables)**  
-    * **[0x08 ~ Variable Length Arrays](#0x08--variable-length-arrays)**  
-    * **[0x09 ~ Using ft_ prefix for all functions](#0x09--using-ft_-prefix-for-all-functions)**  
-    * **[0x0A ~ Usage of Sequence Point](#0x0a--usage-of-sequence-point)**  
-    * **[0x0B ~ Assignment of read-only location](#0x0b--assignment-of-read-only-location)**  
-    * **[0x0C ~ Carefully use define preprocessor macros](#oxoc--carefully-use-define-preprocessor-macros)**  
-    * **[0x0D ~ Comparing Float and Double](#0x0d--comparing-float-and-double)**  
-    * **[0x0E ~ Wrong usage of pointers](#0x0e--wrong-usage-of-pointers)**  
-    * **[0x0F ~ Undefined Behavior](#0x0f--undefined-behavior)**  
-	* **[0x10 ~ Operator Precedence](#0x10--operator-precedence)**  
+    * **[0x04 ~ 함수 인자로 받은 지역 변수 값 바꾸려는 시도](#0x04--modifying-value-of-a-local-variable-given-as-function-parameter)**  
+    * **[0x05 ~ 맨끝 없는 malloc](#0x05--unprotected-malloc)**  
+    * **[0x06 ~ 이미 free한 메모리 또 free](#0x06--freeing-memory-that-has-already-been-fred)**  
+    * **[0x07 ~ 전역 변수 쓰지 말기](#0x07--do-not-use-global-variables)**  
+    * **[0x08 ~ 가변 길이 배열(VLA)](#0x08--variable-length-arrays)**  
+    * **[0x09 ~ 모든 함수에 ft_ 접두어 붙이기](#0x09--using-ft_-prefix-for-all-functions)**  
+    * **[0x0A ~ sequence point](#0x0a--usage-of-sequence-point)**  
+    * **[0x0B ~ 읽기 전용 위치에 대입](#0x0b--assignment-of-read-only-location)**  
+    * **[0x0C ~ #define 매크로, 함부로 쓰지 않기](#oxoc--carefully-use-define-preprocessor-macros)**  
+    * **[0x0D ~ float와 double 비교](#0x0d--comparing-float-and-double)**  
+    * **[0x0E ~ 포인터 잘못 쓰기](#0x0e--wrong-usage-of-pointers)**  
+    * **[0x0F ~ undefined behavior](#0x0f--undefined-behavior)**  
+	* **[0x10 ~ 연산자 우선순위](#0x10--operator-precedence)**  
 
 ---
-* **[2. Clean Code](#snowflake-clean-code)**  
-    * **[0x00 ~ Meaningful and Explicit Names](#0x00--meaningful-and-explicit-names)**  
-    * **[0x01 ~ Write short functions](#0x01--write-short-functions)**  
-    * **[0x02 ~ Using structure for basic items](#0x02--using-structure-for-basic-items)**  
-    * **[0x03 ~ Using flags for projects' options](#0x03--using-flags-for-projects-options)**  
-    * **[0x04 ~ Using gcc flags for Makefile](#0x04--using-gcc-flags-for-makefile)**  
-    * **[0x05 ~ Using preprocessor DEBUG macros](#0x05--using-preprocessor-debug-macros)**  
-	* **[0x06 ~ Branching Optimization](#0x06--branching-optimization)**
-	* **[0x07 ~ Reserved Keywords](#0x07--reserved-keywords)**  
+* **[2. 클린 코드](#snowflake-clean-code)**  
+    * **[0x00 ~ 이름을 분명하게](#0x00--meaningful-and-explicit-names)**  
+    * **[0x01 ~ 함수는 짧게](#0x01--write-short-functions)**  
+    * **[0x02 ~ 기본 데이터는 struct로](#0x02--using-structure-for-basic-items)**  
+    * **[0x03 ~ 프로젝트 옵션은 플래그로](#0x03--using-flags-for-projects-options)**  
+    * **[0x04 ~ Makefile에 gcc 플래그](#0x04--using-gcc-flags-for-makefile)**  
+    * **[0x05 ~ DEBUG용 전처리 매크로](#0x05--using-preprocessor-debug-macros)**  
+	* **[0x06 ~ 분기 최적화](#0x06--branching-optimization)**
+	* **[0x07 ~ 예약어](#0x07--reserved-keywords)**  
 
 ---
-* **[3. Programmer Tools](#programmer-tools)**      
-    * **[0x00 ~ Code Editors](#0x00--code-editors)**  
-    * **[0x01 ~ Terminal Bash](#0x01--terminal-bash)**  
+* **[3. 개발자 도구](#programmer-tools)**      
+    * **[0x00 ~ 에디터](#0x00--code-editors)**  
+    * **[0x01 ~ 터미널 Bash](#0x01--terminal-bash)**  
     * **[0x02 ~ Git](#0x02--git)**  
-    * **[0x03 ~ Productivity Gains](#0x03--productivity-gains)**  
-    * **[0x04 ~ Add a a new binary in the PATH environment variable](#0x04--add-a-a-new-binary-in-the-path-environment-variable)**  
-    * **[0x05 ~ Computer Graphics Libraries](#0x05--computer-graphics-libraries-ubuntu)**  
+    * **[0x03 ~ 생산성](#0x03--productivity-gains)**  
+    * **[0x04 ~ PATH에 바이너리 추가](#0x04--add-a-a-new-binary-in-the-path-environment-variable)**  
+    * **[0x05 ~ 컴퓨터 그래픽 라이브러리](#0x05--computer-graphics-libraries-ubuntu)**  
 
 ---
-* **[4. Curated list of Programming Learning Materials](#gem-curated-list-of-programming-learning-materials)**  
-    * **[0x00 ~ C Knowledge](#0x00--c-knowledge)**  
-    * **[0x01 ~ Algorithm](#0x01--algorithm)**  
-    * **[0x02 ~ Bitwise Manipulations](#0x02--bitwise-manipulations)**  
-    * **[0x03 ~ Network](#0x03--network)**  
-    * **[0x04 ~ Hacking & Security](#0x04--hacking--security)**  
-    * **[0x05 ~ Computer Graphics](#0x05--computer-graphics)**  
-    * **[0x06 ~ Computer Vision & AI](#0x06--computer-vision--ai)**  
-    * **[0x07 ~ C++ Optimization](#0x07--c-optimization)**  
-    * **[0x08 ~ Assembly Optimization](#0x08--assembly-optimization)**  
-    * **[0x09 ~ Functional Programing](#0x09--functional-programing-by-leonard-marquez)**  
-	* **[0x0A ~ Computer Architecture](#0x0a--computer-architecture)**
-    * **[0x0B ~ Misc](#0x0b--misc)**  
-    * **[0x0C ~ Science-Fictions Masterpieces](#0x0c--science-fiction-masterpieces)**  
+* **[4. 골라 읽을 프로그래밍 자료](#gem-curated-list-of-programming-learning-materials)**  
+    * **[0x00 ~ C](#0x00--c-knowledge)**  
+    * **[0x01 ~ 알고리즘](#0x01--algorithm)**  
+    * **[0x02 ~ 비트 연산](#0x02--bitwise-manipulations)**  
+    * **[0x03 ~ 네트워크](#0x03--network)**  
+    * **[0x04 ~ 해킹 & 보안](#0x04--hacking--security)**  
+    * **[0x05 ~ 컴퓨터 그래픽](#0x05--computer-graphics)**  
+    * **[0x06 ~ 컴퓨터 비전 & AI](#0x06--computer-vision--ai)**  
+    * **[0x07 ~ C++ 최적화](#0x07--c-optimization)**  
+    * **[0x08 ~ 어셈블리 최적화](#0x08--assembly-optimization)**  
+    * **[0x09 ~ 함수형 프로그래밍](#0x09--functional-programing-by-leonard-marquez)**  
+	* **[0x0A ~ 컴퓨터 구조](#0x0a--computer-architecture)**
+    * **[0x0B ~ 기타](#0x0b--misc)**  
+    * **[0x0C ~ SF 걸작](#0x0c--science-fiction-masterpieces)**  
 
 ---
-* **[5. Tutorials](#tutorials)**  
-    * **[0x00 ~ Optimization - Aiming for the lowest latency](#0x00--optimization---aiming-for-the-lowest-latency)**  
-        * **[Optimization flags](#optimization-flags)**  
-        * **[Multithreading and Parallelization](#multithreading-and-parallelization)**  
-        * **[Vectorization](#vectorization)**  
-        * **[Combining Optimization Flags, Parallelization and Vectorization](#combining-optimization-flags-parallelization-and-vectorization)**  
-        * **[The right algorithm](#the-right-algorithm)**  
-		* **[Exploring Compiler's Assembly Output](#exploring-compilers-assembly-output)**  
-    * **[0x01 ~ Computer Graphics - Using SDL2 to create Fractal](#0x01--computer-graphics---using-sdl2-to-create-fractal)**  
-        * **[Using SDL2 to create Computer Graphics](#using-sdl2-to-create-computer-graphics)**  
-        * **[Example with a Barnsley Fern Fractal](#example-with-a-barnsley-fern-fractal)**  
-    * **[0x02 ~ Hacking - Buffer Overflow](#0x02--hacking---buffer-overflow)**  
-        * **[Introduction](#introduction)**  
-        * **[Buffer overflow to hijack a password](#buffer-overflow-to-hijack-a-password)**  
-        * **[Shellcode Execution to get root access](#shellcode-execution-to-get-root-access)**  
+* **[5. 튜토리얼](#tutorials)**  
+    * **[0x00 ~ 최적화 — 지연(latency)을 최소로](#0x00--optimization---aiming-for-the-lowest-latency)**  
+        * **[최적화 플래그](#optimization-flags)**  
+        * **[멀티스레딩과 병렬](#multithreading-and-parallelization)**  
+        * **[벡터화(vectorization)](#vectorization)**  
+        * **[플래그·병렬·벡터화 한판에](#combining-optimization-flags-parallelization-and-vectorization)**  
+        * **[알고리즘이 답](#the-right-algorithm)**  
+		* **[컴파일러가 뱉는 어셈블리 들여다보기](#exploring-compilers-assembly-output)**  
+    * **[0x01 ~ 컴퓨터 그래픽 — SDL2로 프랙탈](#0x01--computer-graphics---using-sdl2-to-create-fractal)**  
+        * **[SDL2로 그래픽](#using-sdl2-to-create-computer-graphics)**  
+        * **[Barnsley fern 예제](#example-with-a-barnsley-fern-fractal)**  
+    * **[0x02 ~ 해킹 — 버퍼 오버플로](#0x02--hacking---buffer-overflow)**  
+        * **[서론](#introduction)**  
+        * **[비밀번호 뺏는 오버플로](#buffer-overflow-to-hijack-a-password)**  
+        * **[쉘코드로 root](#shellcode-execution-to-get-root-access)**  
 
 ---
-* **[6. Epilogue]()** 
-    * **[0x00 ~ Wanted PR](#0x00--wanted-pull-requests)**  
-    * **[0x01 ~ Question ? Broken Link ? Wanna contribute ?](#0x01--question--broken-link--wanna-contribute-)**  
-    * **[0x02 ~ Liked it ?](#0x02--liked-it-)**  
-    * **[0x2A ~ About the Author](#musical_score-0x2a--about-the-author)**  
+* **[6. 에필로그](#epilogue)** 
+    * **[0x00 ~ 환영하는 PR](#0x00--wanted-pull-requests)**  
+    * **[0x01 ~ 질문·깨진 링크·기여하고 싶다면](#0x01--question--broken-link--wanna-contribute-)**  
+    * **[0x02 ~ 마음에 들었다면](#0x02--liked-it-)**  
+    * **[0x2A ~ 저자에 대해](#musical_score-0x2a--about-the-author)**  
 
-*NB: Use CTRL + F or Command + F to quickly look for keywords.*
-
----
-# About 42 School
+*NB: 키워드 찾을 땐 Ctrl+F (Mac은 Command+F).*
 
 ---
-## 0x00 ~ What is 42 School
+<a id="about-42-school"></a>
+# 42 스쿨에 대해
 
-> 42 is more than just a disruptive educational model and coding school. What makes us unique and a major player in the tech world are the defining characteristics of the 42 culture. Every element of 42 shows our culture, from the students, to the curriculum structure and content, to the $0 tuition and innovative admissions process.
+---
+<a id="0x00--what-is-42-school"></a>
+## 0x00 ~ 42 스쿨이 뭔가요
 
-That's right, the school is FREE, originally funded and founded in Paris by generous **philanthropist billionaire [Xaviel Niel](https://en.wikipedia.org/wiki/Xavier_Niel)**.
+> 42는 단순히 파격적인 교육 모델이나 코딩 학교 이상입니다. 우리를 특별하게 하고 테크 업계에서 무게를 실어 주는 건 42 문화를 정의하는 여러 결이에요. 학생부터 커리큘럼 구조·내용, **수업료 0원**과 참신한 입학 과정까지, 42의 모든 요소가 그 문화를 드러냅니다.
 
-> **I'm not unusual; it's the others who are strange** ― *Xavier Niel*
+맞아요, 학교는 **무료**입니다. 원래 파리에서 관대한 **억만장자 자선가 [자비에 니엘(Xavier Niel)](https://en.wikipedia.org/wiki/Xavier_Niel)**의 지원으로 세워졌죠.
 
-The name of the school, "42", is a tribute to [The Hitchhiker's Guide to the Galaxy](https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy), a comedy science fiction series created by Douglas Adams.
+> **이상한 건 내가 아니라 주변이다** ― *자비에 니엘*
 
-> 42, or The Answer to the Ultimate Question of Life, The Universe, and Everything
+학교 이름 "42"는 더글러스 애덤스의 코미디 SF 시리즈 [*은하수를 여행하는 히치하이커를 위한 안내서*(The Hitchhiker's Guide to the Galaxy)](https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy)에 대한 오마주입니다.
 
-The supercomputer had this function ready:
+> 42, 즉 생명·우주·그리고 모든 것에 대한 궁극의 질문에 대한 답
+
+초컴퓨터는 이미 이런 함수를 갖고 있었죠:
 ```c
 #include <stdio.h>
 
@@ -149,24 +153,25 @@ int main(void) {
 }
 ```
 
-There are no teachers but a pedagogic team that ensure that students do not harm the material and provide a cursus syllabus to follow. What is learned is hence mainly achieved through peer-to-peer project review and [RTFM](https://en.wikipedia.org/wiki/RTFM).
+교수는 없고, 교육팀이 기물을 망가뜨리지 않게 돌보며 따라갈 **커리큘럼(cursus)** 뼈대를 제공합니다. 배우는 건 대부분 **동료 평가(peer evaluation)** 와 프로젝트 리뷰, 그리고 필요하면 [RTFM](https://en.wikipedia.org/wiki/RTFM)으로 완성됩니다.
 
 ![RTFM meme](https://i.kym-cdn.com/photos/images/newsfeed/000/017/668/Mao_RTFM_vectorize_by_cmenghi.png?1318992465)
 
-Most of the entrance exam and early cursus is done in [C language](https://en.wikipedia.org/wiki/C_(programming_language)).  
+선발과 커리큘럼 초반은 대부분 [C](https://en.wikipedia.org/wiki/C_(programming_language))로 진행됩니다.
 
-> **Nevertheless, C retains the basic philosophy that programmers know what they are doing; it only requires that they state their intentions explicitly.** ― *Brian W. Kernighan, The C Programming Language*
+> **그래도 C의 기본 철학은 이거다. 프로그래머는 자기가 하는 일을 안다. 언어가 요구하는 건 그 의도를 분명히 써 달라는 것뿐이다.** ― *브라이언 W. 커니핸, The C Programming Language*
 
-C is the most pedagogic programming language you can learn as it allows to understand the basis of programming from simple concepts like **conditions** {if, elseif, else}, **loops** {while, do while, for}, **write system calls** and **pointers** to more advanced one like **function pointers** and **memory allocation**.
+C는 **조건** {if, else if, else}, **반복** {while, do while, for}, **write 같은 시스템 콜**, **포인터**에서부터 **함수 포인터**, **메모리 할당**까지, 프로그래밍의 바닥을 한 번에 잡아 주는 가장 ‘교과서적인’ 언어입니다.
 
-Later on you can specialize in other languages: Python will fit data scientists and devops, javascript for frontend developers and C# for those looking for a career in finance.
+나중엔 다른 언어로 갈라지기도 해요. 데이터·DevOps엔 Python, 프론트엔 자바스크립트, 금융 쪽 커리어엔 C# 같은 식으로요.
 
-> **When you say 'I wrote a program that crashed Windows,' people just stare at you blankly and say 'Hey, I got those with the system, for free.'** ― *Linus Torvalds*
+> **‘윈도우를 켜뜨리는 프로그램 짰어’라고 하면 사람들은 멍하니 쳐다보다가, ‘나도 OS에 끼워 준 거 있잖아, 공짜로’라고 한다.** ― *리누스 토르발스*
 
-You will learn how to do what [Muggles](https://en.wikipedia.org/wiki/Muggle) were only able to do accidentally.
+[머글](https://en.wikipedia.org/wiki/Muggle)들이 우연히만 겪던 일을, 이제는 의도적으로 해낼 줄 알게 될 겁니다.
 
 ---
-## 0x01 ~ For Candidates: About the "Piscine"
+<a id="0x01--for-candidates-about-the-piscine"></a>
+## 0x01 ~ 지원자용: "Piscine" 이야기
 
 > **If you're going through hell, keep going.** ― *Winston Churchill*
 
