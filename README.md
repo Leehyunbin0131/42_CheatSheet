@@ -1528,28 +1528,30 @@ int *create_and_print_int_array(int len) {
 
 
 ---
-# :snowflake: Clean Code
+<a id="snowflake-clean-code"></a>
+# :snowflake: 클린 코드
 
-> "You are reading this book for two reasons. First, you are a programmer. Second, you want to be a better programmer. Good. We need better programmers." ― *Robert C. Martin in Clean Code*
+> "이 책을 집어든 이유는 둘이다. 첫째, 당신은 프로그래머다. 둘째, 더 나은 프로그래머가 되고 싶다. 좋아. 우리에겐 더 나은 프로그래머가 필요하다." ― *로버트 C. 마틴, Clean Code*
 
-Now some guidelines that should hopefully help your coding style
+이제 코딩 스타일에 도움이 될 만한 가이드라인입니다.
 
 
 ---
-## 0x00 ~ Meaningful and Explicit Names
+<a id="0x00--meaningful-and-explicit-names"></a>
+## 0x00 ~ 이름을 분명하게
 
-> "The best programs are written so that computing machines can perform them quickly and so that human beings can understand them clearly." - 
-Donald Ervin Knuth
+> "최고의 프로그램은 기계가 빨리 돌릴 수 있게 쓰이고, 사람이 또렷이 이해할 수 있게 쓰인다." — *도널드 커누스*
 
-I once met a developer who was using hp and mp instead of x and y for coordinates.  
-While being a very good reference to [JRPG]()... it is totally out of question to code like this.
-The function name should always be:
-* In English, forget about chauvinism!
-* At least 5 letters. It is okay to have shorter exceptionally for well-known variables like int index -> int i, temporary -> tmp and pointer -> ptr.
-* Self-explanatory: build_graph instead of graph or build_it
-* For long name use either camel case (saveClientConfig) or snake case (save_client_config) and stick to one style.
+좌표에 `x`, `y` 대신 `hp`, `mp`를 쓰는 개발자를 본 적이 있습니다.  
+[JRPG](https://en.wikipedia.org/wiki/Role-playing_video_game) 팬으로서는 미소가 나오지만, **업무 코드에선 금지**에 가깝죠.
 
-### Writing a function check if a file exist
+함수 이름은 보통:
+* **영어로.** (짧은 예외는 아래)
+* **다섯 글자 이상**이 기본. `i`, `tmp`, `ptr`처럼 통용되는 축약은 예외.
+* **스스로 설명**: `graph`보다 `build_graph`
+* 길면 **camelCase**든 **snake_case**든 한 스타일로 통일 (`saveClientConfig` / `save_client_config`)
+
+### 파일이 있는지 검사하는 함수 짜기
 
 ```c
 #include <sys/stat.h>	// stat
@@ -1578,15 +1580,16 @@ int		main(int ac, char **av) {
 
 
 ---
-## 0x01 ~ Write short functions
+<a id="0x01--write-short-functions"></a>
+## 0x01 ~ 함수는 짧게
 
-> "FUNCTIONS SHOULD DO ONE THING. THEY SHOULD DO IT WELL. THEY SHOULD DO IT ONLY." ― *Robert C. Martin in Clean Code (p35)*
+> "함수는 한 가지 일만 한다. 그걸 잘한다. 그것만 한다." ― *로버트 C. 마틴, Clean Code (p35)*
 
-**42 has a rigid but fair rule: limits every functions to 25 lines.**  
+**42에는 꽤 엄격하지만 공정한 규칙이 있습니다: 함수당 25줄 제한.**
 
-*Let's see a case study with a function to get lower case (from 'A' to 'a') for a given character*
+*같은 일을 `A` → `a`로 바꾸는 짧은 함수로 사례를 보죠.*
 
-**0b001 Function done by a 42 'Piscineux' (AKA it works):**
+**0b001 피신생이 짠 버전 (일단 돌아가긴 함):**
 ```c
 char	to_lower_by_piscineux(char c) {
 	if (c >= 'A' && c <= 'Z')
@@ -3021,45 +3024,49 @@ int main()
 
 
 --- 
-# Epilogue
+<a id="epilogue"></a>
+# 에필로그
 
 --- 
-## 0x00 ~ Wanted Pull Requests
+<a id="0x00--wanted-pull-requests"></a>
+## 0x00 ~ 환영하는 PR
 
-> **If you know how to make software, then you can create big things** ― *Xavier Niel*
+> **소프트웨어를 만들 줄 안다면, 큰 것도 만들 수 있다** ― *자비에 니엘*
 
-*One function related to each 42 project to help students get started*  
-*In-depth examples with pointers*  
-*Books on system design*  
-*Exemple of a Makefile "qui fait le cafe"*
+*각 42 프로젝트마다 학생이 시작하기 좋은 함수 하나*  
+*포인터를 파고드는 예제*  
+*시스템 설계 서적*  
+*“커피까지 타 주는” Makefile 예시*
 
 
 ---
-## 0x01 ~ Question ? Broken Link ? Wanna contribute ?
+<a id="0x01--question--broken-link--wanna-contribute-"></a>
+## 0x01 ~ 질문·깨진 링크·기여하고 싶다면
 
-> **I think it's very important to have a feedback loop, where you're constantly thinking about what you've done and how you could be doing it better** ― *Elon Musk*
+> **피드백 루프가 중요하다고 본다. 끊임없이 ‘지금까지 뭘 했고, 어떻게 더 잘할까’를 생각하는 거다** ― *일론 머스크*
 
-*Raise an issue or even better: submit a pull request*
+*이슈를 열거나, 더 좋게는 PR을 보내 주세요.*
 
-First fork the repository and clone it locally (you will be forgiven for this kind of git clone)
+먼저 저장소를 fork한 뒤 로컬에 클론합니다(이 정도 `git clone`은 용서받을 만합니다).
 
-Make the desired changed to the README.md file
+`README.md`를 원하는 대로 고친 다음,
 
-Then open the terminal containing your fork and enter:
+포크를 클론해 둔 터미널에서:
 ```
 git checkout -b agavrel
 git commit -am "[ADD] Interesting link about C Hash"
 git push --set-upstream origin agavrel
 ```
 
-Go back to internet and you will see that you can submit a pull request.
+브라우저로 돌아가면 pull request를 열 수 있습니다.
 
-*I will personally review contributions*
+*기여는 제가 직접 살펴보겠습니다.*
 
 
 ---
-## 0x02 ~ Liked it ?
-*Show your appreciation by starring the repo, sharing on slack, RT and 'lache un com magueule' skyblog™*
+<a id="0x02--liked-it-"></a>
+## 0x02 ~ 마음에 들었다면?
+*별(star) 달기, 슬랙에 공유, RT, 그리고 옛날 감성으로 한 줄 댓글까지 — 고맙게 받을게요.*
 
 ![Kimg Jeong Un applauding](https://raw.githubusercontent.com/agavrel/42_CheatSheet/master/img/kimjeongun_meme.gif)
 
@@ -3067,8 +3074,9 @@ Go back to internet and you will see that you can submit a pull request.
 
 
 ---
-## :musical_score: 0x2A ~ About the Author
+<a id="musical_score-0x2a--about-the-author"></a>
+## :musical_score: 0x2A ~ 저자에 대해
 
 **Antonin GAVREL**
 
-*Feel free to reach me on [LinkedIn](https://www.linkedin.com/in/antonin-gavrel-086b2618/)*
+*[LinkedIn](https://www.linkedin.com/in/antonin-gavrel-086b2618/)으로 연락 주셔도 됩니다.*
